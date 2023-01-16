@@ -37,7 +37,14 @@ document.addEventListener('alpine:init', () => {
      */
     Alpine.data('movies', () => ({
         baseUrl: 'https://imdb8.p.rapidapi.com',
-        apiKey: '4efdfdf577msh2184d6b038165d6p136ffcjsn021a3bd97a87',
+        /**
+         * Excedeed Api Key
+         */
+        // apiKey: '4efdfdf577msh2184d6b038165d6p136ffcjsn021a3bd97a87',
+        /**
+         * Active Api Key
+         */
+        apiKey: 'e8ca1aa3c0msh13242a9573852c3p1dc2bdjsn5162c0ed1793',
         listMovie: [],
 
         async getMovies() {
@@ -51,7 +58,13 @@ document.addEventListener('alpine:init', () => {
             })
 
             // Consume Response Api
-            console.log("response", response)
+            // console.log("response1", response)
+
+            response = await response.json()
+            // console.log("response2", response)
+
+            this.listMovie = response.d
+            // console.log("listMovie", this.listMovie)
             
         }
     }))
