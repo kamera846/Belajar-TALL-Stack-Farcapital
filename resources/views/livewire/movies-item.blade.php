@@ -1,5 +1,5 @@
 <div class="max-w-sm rounded overflow-hidden shadow-lg">
-    <img class="w-full" x-bind:src="item.i.imageUrl" x-bind:alt="`Gambar dari movie ${ item.l } tidak dapat di load!`">
+    <img class="w-full" x-bind:src="item?.i?.imageUrl" x-bind:alt="`Gambar dari movie ${ item.l } tidak dapat di load!`">
     <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2" x-text="item.l"></div>
         <p class="text-gray-700 text-base" x-text="item.s"></p>

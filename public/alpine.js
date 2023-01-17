@@ -47,9 +47,10 @@ document.addEventListener('alpine:init', () => {
         apiKey: 'e8ca1aa3c0msh13242a9573852c3p1dc2bdjsn5162c0ed1793',
         listMovie: [],
 
-        async getMovies() {
+        async getMovies(searchKey) {
             // Fetch API
-            var response = await fetch(this.baseUrl + `/auto-complete?q=marvel`, {
+            // var searchKey = this.$wire.searchKey ?? 'marvel'
+            var response = await fetch(this.baseUrl + `/auto-complete?q=${searchKey}`, {
                 method: 'GET',
                 headers: {
                   'X-RapidAPI-Key': this.apiKey,
