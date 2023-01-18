@@ -46,9 +46,17 @@ document.addEventListener('alpine:init', () => {
          */
         apiKey: 'e8ca1aa3c0msh13242a9573852c3p1dc2bdjsn5162c0ed1793',
         listMovie: [],
+        isLoading: false,
 
         async getMovies(searchKey) {
-            // Fetch API
+            /**
+             * Loading Start
+             */
+            this.isLoading = true
+
+            /**
+             * Fetch API
+             */
             // var searchKey = this.$wire.searchKey ?? 'marvel'
             var response = await fetch(this.baseUrl + `/auto-complete?q=${searchKey}`, {
                 method: 'GET',
@@ -58,7 +66,9 @@ document.addEventListener('alpine:init', () => {
                 }
             })
 
-            // Consume Response Api
+            /**
+             * Consume Response Api
+             */
             // console.log("response1", response)
 
             response = await response.json()
@@ -67,6 +77,10 @@ document.addEventListener('alpine:init', () => {
             this.listMovie = response.d
             // console.log("listMovie", this.listMovie)
             
+            /**
+             * Loading Done
+             */
+            this.isLoading = false
         }
     }))
 

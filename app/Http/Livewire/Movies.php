@@ -8,8 +8,8 @@ class Movies extends Component
 {
     public $searchKey;
 
-    public function searchTrigger() {
-        $this->emit('search-trigger', $this->searchKey);
+    public function mount($urlKey = 'marvel') {
+        $this->searchKey = $urlKey;
     }
 
     public function render()
